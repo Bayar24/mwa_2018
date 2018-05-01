@@ -13,12 +13,46 @@
     <li data-time="3:34">Node Video</li>
     <li data-time="4:29">ECMA6 Video</li>
 </ul>
-<button onclick="exercise1()">Try it</button>
+<button onclick="exercise1()">ECMA6 Sum seconds</button>
 </div>
 <hr/>
 <div>
 <p>EXERCISE-2</p>
-<button onclick="exercise2()">Try it</button>
+<p>Object :[<br/>
+	{prof: 'Asaad Saad', course: 'WAP', courseID:'CS452'},<br/>
+	{prof: 'Rakesh Shrestha', course: 'WAA', courseID:'CS545'},<br/>
+	{prof: 'Steve Nolle', course: 'SWE', courseID:'CS425'}<br/>
+	]</p>
+<button onclick="exercise2()">Sort it</button>
+</div>
+<div>
+<p>EXERCISE-3</p>
+<p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
+<button onclick="exercise3()">More than 70</button>
+</div>
+<div>
+<p>EXERCISE-4</p>
+	<h3>BMI Calculator</h3>
+	<input type="radio" name="unit" value="english"/><Label>English</Label>
+	<input type="number" name="height" placeholder="Enter your height"/>
+	<input type="number" name="weight" placeholder="Enter your weight"/>
+	<button onclick="exercise4()">Calculate BMI</button>
+	<div id="output"></div>
+</div>
+<div>
+<p>EXERCISE-5</p>
+<p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
+<button onclick="exercise3()">More than 70</button>
+</div>
+<div>
+<p>EXERCISE-6</p>
+<p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
+<button onclick="exercise3()">More than 70</button>
+</div>
+<div>
+<p>EXERCISE-7</p>
+<p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
+<button onclick="exercise3()">More than 70</button>
 </div>
 <script>
 function exercise1() {
@@ -31,7 +65,26 @@ function exercise2() {
 	{prof: 'Rakesh Shrestha', course: 'WAA', courseID:'CS545'},
 	{prof: 'Steve Nolle', course: 'SWE', courseID:'CS425'}
 	];
-    alert(library.sort(function(a,b) {return (a.course > b.course) ? 1 : 0}).toString());
+    alert(JSON.stringify(library.sort(function(a,b) {return (a.course > b.course) ? 1 : 0})));
+}
+function exercise3() {
+    const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
+    alert(numbers.filter(item=>item>70));
+}
+function exercise4() {
+    
+}
+function exercise5() {
+    const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
+    alert(numbers.filter(item=>item>70));
+}
+function exercise6() {
+    const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
+    alert(numbers.filter(item=>item>70));
+}
+function exercise7() {
+    const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
+    alert(numbers.filter(item=>item>70));
 }
 </script>
 
