@@ -25,34 +25,40 @@
 	]</p>
 <button onclick="exercise2()">Sort it</button>
 </div>
+<hr/>
 <div>
 <p>EXERCISE-3</p>
 <p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
 <button onclick="exercise3()">More than 70</button>
 </div>
+<hr/>
 <div>
 <p>EXERCISE-4</p>
 	<h3>BMI Calculator</h3>
-	<input type="radio" name="unit" value="english"/><Label>English</Label>
+	<input type="radio" checked name="unit" value="metric"/><label>Metric</label>
+	<input type="radio" name="unit" value="english"/><label>English</label>
 	<input type="number" name="height" placeholder="Enter your height"/>
 	<input type="number" name="weight" placeholder="Enter your weight"/>
 	<button onclick="exercise4()">Calculate BMI</button>
 	<div id="output"></div>
 </div>
+<hr/>
 <div>
 <p>EXERCISE-5</p>
-<p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
-<button onclick="exercise3()">More than 70</button>
+<p>TeacherA: Asaad, TeacherB: Tina</p>
+<button onclick="exercise5()">Teach who</button>
 </div>
+<hr/>
 <div>
 <p>EXERCISE-6</p>
-<p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
-<button onclick="exercise3()">More than 70</button>
+<p>Sentense: This house is nice! Filter: house, nice</p>
+<button onclick="exercise6()">Filter</button>
 </div>
+<hr/>
 <div>
 <p>EXERCISE-7</p>
-<p>Numbers: [3, 62, 234, 7, 23, 74, 23, 76, 92]</p>
-<button onclick="exercise3()">More than 70</button>
+<p>Numbers: [6, 4, 0, 3, -2, 1]</p>
+<button onclick="exercise7()">Bubble sort</button>
 </div>
 <script>
 function exercise1() {
@@ -72,19 +78,84 @@ function exercise3() {
     alert(numbers.filter(item=>item>70));
 }
 function exercise4() {
-    
+	let radio = document.getElementsByName("unit");
+	let height = parseInt(document.getElementsByName("height")[0].value);
+	let weight = parseInt(document.getElementsByName("weight")[0].value);
+    class BMICalculator {
+            constructor(height, weight) {
+                let checkedVal;
+				this.height = height;
+                this.weight = weight;
+                for (let i = 0; i < radio.length; i++) {
+                    if (radio[i].checked) {
+                        checkedVal = radio[i].value;
+						break;
+                    }
+                }
+                this.unit = checkedVal;
+
+                if (this.unit === "english") {
+                    this.height = this.height * 0.0254;
+                    this.weight = this.weight * 0.45359237;
+                }
+            }
+
+            valid() {
+                return !(isNaN(this.height) || isNaN(this.weight) || this.unit === undefined);
+            }
+
+            calcBMI() {
+                let bmi = this.weight / (this.height * this.height);
+                let result = bmi.toFixed(2);
+
+                if(bmi < 18.5) {
+                    result += " - Underweight";
+                } else if(bmi < 25) {
+                    result +=  " - Normal";
+                } else if(bmi < 30) {
+                    result +=  " - Overweight";
+                } else {
+                    result +=  " - Obese";
+                }
+				document.getElementById("output").innerText = result;
+				alert(result);
+            }
+        }
+		let calculator = new BMICalculator(height, weight);
+        if(calculator.valid()){
+			calculator.calcBMI();
+		}
+		else
+			alert("Invalid input!!!");
 }
 function exercise5() {
-    const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
-    alert(numbers.filter(item=>item>70));
+    function Person(name){
+		this.name = name;
+	}
+	let TeacherA = new Person('Tina');
+	let TeacherB = new Person('Asaad');
+	Person.prototype.teach = function (subject) {
+        alert(this.name + " is now teaching " + subject);
+    }
+	TeacherA.teach('MWA');
+	TeacherB.teach('WAP');
 }
 function exercise6() {
-    const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
-    alert(numbers.filter(item=>item>70));
+    String.prototype.filter = function(blockedWords){
+		let words = this.split(' ');
+		let res = this;
+		for(let word of blockedWords){
+			res = res.replace(word,'***');
+		}
+		return res;
+	}
+	alert("This house is nice!".filter(['house', 'nice']));
 }
 function exercise7() {
-    const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
-    alert(numbers.filter(item=>item>70));
+    Array.prototype.bubbleSort = function(){
+		
+	}
+	[6, 4, 0, 3, -2, 1].bubbleSort();
 }
 </script>
 
