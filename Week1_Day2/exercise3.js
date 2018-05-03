@@ -26,7 +26,7 @@ function exec(fn){
             return this;
         }
     }
-	let obj = {};
+	/* let obj = {};
 	fn(function(err, data){
 		obj.done = function(cb){
 			if(err ===null)
@@ -38,6 +38,6 @@ function exec(fn){
 				cb(err);
 			return this;
 		}
-	});
+	}); */
 }
-exec.slow().done(function(data){console.log(data);}).fail(function(err){console.log("Error: "+err);});
+exec(slow).done(function(data){console.log(data);}).fail(function(err){console.log("Error: "+err);});

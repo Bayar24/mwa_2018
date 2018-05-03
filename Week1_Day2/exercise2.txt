@@ -1,0 +1,15 @@
+Q1. Explain why do we want sometimes to use setImmediate instead of using setTimeout?
+A1.
+Q2. Explain the difference between process.nextTick and setImmediate?
+A2.
+Q3. Name 10 global modules available in Node environment
+A3.	1. module
+	2. global
+	3. process
+	4. buffer
+	5. require()
+	6. setInterval()
+	7. clearInterval()
+	8. setTimeout()
+	9. clearTimeout()
+	10. setImmediate()
