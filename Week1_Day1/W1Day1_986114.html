@@ -153,9 +153,25 @@ function exercise6() {
 }
 function exercise7() {
     Array.prototype.bubbleSort = function(){
-		
+	let n = this.length;
+    let temp = 0;
+	numArray = this;
+	let i=0;
+    for (let num in numArray) {
+		let j =1 ;
+		while(j<n-i) {
+            if (numArray[j - 1] > numArray[j]) {
+                temp = numArray[j - 1];
+                numArray[j - 1] = numArray[j];
+                numArray[j] = temp;
+            }
+			j++;
+        }
+		i++;
+    }
+	return numArray;
 	}
-	[6, 4, 0, 3, -2, 1].bubbleSort();
+	alert([6, 4, 0, 3, -2, 1].bubbleSort());
 }
 </script>
 
