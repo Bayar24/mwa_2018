@@ -17,7 +17,7 @@ server.on('request', (req, res) => {
 
     const filePath = path.join(__dirname, pathString);
 
-    const childProcess = fork('exercise1-child.js');
+    const childProcess = fork('Week1_Day4/exercise1-child.js');
     childProcess.send(filePath);
     childProcess.on('message', (data) => {
         res.write(data);
