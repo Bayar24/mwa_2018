@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  counter = 1; 
+  updateTriggeredByChild(num: number){
+    this.counter = num;
+  }
 }

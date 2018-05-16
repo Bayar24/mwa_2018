@@ -1,2 +1,4 @@
 <h4>Counter</h4>
-<app-counter value='3'></app-counter>
+<app-counter [value]="counter" (counterChange)="updateTriggeredByChild($event)"></app-counter>
+<br/>
+<span>{{counter}}</span>
