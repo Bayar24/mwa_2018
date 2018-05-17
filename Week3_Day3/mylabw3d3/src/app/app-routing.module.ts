@@ -12,8 +12,10 @@ import { MyGuard } from './my.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'student', component: StudentComponent},
-  { path: 'profile/:id', component: ProfileComponent, canActivate: [MyGuard] },
+  { path: 'student', component: StudentComponent, 
+  children:[
+    { path: 'profile/:id', component: ProfileComponent, canActivate: [MyGuard] },
+  ]},
   { path: 'error', component: NotFoundComponent },
   { path: '**', component: HomeComponent },
   

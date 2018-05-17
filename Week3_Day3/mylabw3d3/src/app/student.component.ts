@@ -5,8 +5,9 @@ import { DbService } from './db.service';
   selector: 'student-about',
   template: `
   <ul>
-    <li *ngFor="let item of list"><a href="/profile/{{item.id}}">{{item.name}}</a></li>
+    <li *ngFor="let item of list"><a routerLink="profile/{{item.id}}">{{item.name}}</a></li>
   </ul>
+  <router-outlet></router-outlet>
   `,
   styles: []
 })
