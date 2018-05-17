@@ -1,1 +1,2 @@
-<app-my-list [data]="['test1', 'test2', 'test3', 'test4']"></app-my-list>
+<app-my-list [data]="['test1', 'test2', 'test3', 'test4']" (colorChange)="onColorChange($event)"></app-my-list>
+<span>Current color: {{currentColor}}</span>
